@@ -134,7 +134,7 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="95.0" layoutY="109.0" text="ID Pesenan*" textFill="WHITE" />
+                        <Label layoutX="95.0" layoutY="109.0" text="ID Pesanan*" textFill="WHITE" />
                         <TextField fx:id="IDPesanan" layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="235.0" />
                         <Button fx:id="btnHapus" layoutX="488.0" layoutY="105.0" mnemonicParsing="false" onAction="#hapusData" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
                            <font>
@@ -150,12 +150,11 @@
                   </Pane>
                   <TableView prefHeight="415.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
-                        <TableColumn fx:id="colID" prefWidth="81.7142333984375" text="ID" />
-                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="122.85711669921875" text="Kategori" />
-                        <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="132.00003051757812" text="Nama" />
-                        <TableColumn fx:id="colHarga" minWidth="0.0" prefWidth="158.857177734375" text="Harga" />
-                        <TableColumn fx:id="colDiskon" minWidth="0.0" prefWidth="83.4285888671875" text="Diskon" />
-                        <TableColumn fx:id="colJumlah" minWidth="0.0" prefWidth="124.5714111328125" text="Jumlah" />
+                        <TableColumn fx:id="colID" prefWidth="91.42852783203125" text="ID" />
+                        <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="170.85720825195312" text="Nama" />
+                        <TableColumn fx:id="colHarga" minWidth="0.0" prefWidth="149.71429443359375" text="Harga" />
+                        <TableColumn fx:id="colDiskon" minWidth="0.0" prefWidth="199.4285888671875" text="Diskon" />
+                        <TableColumn fx:id="colJumlah" minWidth="0.0" prefWidth="89.7142333984375" text="Jumlah" />
                      </columns>
                   </TableView>
                </children>
