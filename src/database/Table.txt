@@ -1,0 +1,37 @@
+CREATE TABLE data_produk(
+    id_produk int not null PRIMARY KEY,
+    nama_produk varchar(100) not null,
+    harga double not null,
+    jumlah int not null,
+    diskon double not null
+)
+
+CREATE TABLE data_barang(
+    id_produk int,
+    barcode varchar(20) not null,
+    kategori varchar(50) not null,
+    expired varchar(20) not null,
+    PRIMARY KEY (id_produk,barcode),
+    FOREIGN KEY (id_produk) REFERENCES data_produk(id_produk)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+CREATE TABLE data_makanan(
+    id_produk int,
+    id_makanan int not null,
+    daya_tahan int not null,
+    PRIMARY KEY (id_produk,id_makanan),
+    FOREIGN KEY (id_produk) REFERENCES data_produk(id_produk)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+)
+
+CREATE TABLE data_penjualan(
+    id_penjualan int not null,
+    id_produk int,
+    listProduk varchar(100) not null,
+    jumlahProduk int not null,
+    stok int not null,
+    PRIMARY KEY (id_penjualan),
+    FOREIGN KEY (id_produk) REFERENCES data_produk(id_produk)
+    ON DELETE RESTRICT ON UPDATE CASCADE
+)
