@@ -13,9 +13,6 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.HomeScreenController">
-<!--    <stylesheets>
-        <URL value="@homescreen.css" />
-    </stylesheets>-->
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -43,7 +40,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
+            <Button fx:id="btnProduk" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openProduk" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -58,7 +55,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="230.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Beli" textFill="WHITE">
+            <Button fx:id="btnBeli" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="230.0" mnemonicParsing="false" onAction="#openBeli" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Beli" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -73,7 +70,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Penjualan" textFill="WHITE">
+            <Button fx:id="btnPenjualan" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#openPenjualan" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Penjualan" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -88,7 +85,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
+            <Button fx:id="btnKategori" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#openKategori" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -105,7 +102,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="*Nama" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -138,7 +135,7 @@
                               <Insets left="50.0" />
                            </padding>
                         </Label>
-                        <Label prefHeight="100.0" prefWidth="406.0" text="Stefanus Ferry" textFill="WHITE">
+                        <Label fx:id="lblNama" prefHeight="100.0" prefWidth="406.0" text="*Nama" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
@@ -155,7 +152,7 @@
                                     <Image url="@../img/iconToPenjualan.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="171.0" text="142" textAlignment="CENTER" textFill="#2a73ff">
+                              <Label fx:id="lblTotPenjualan" alignment="CENTER" prefHeight="17.0" prefWidth="171.0" text="142" textAlignment="CENTER" textFill="#2a73ff">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
@@ -173,7 +170,7 @@
                                     <Image url="@../img/IconToPembeli.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="65" textAlignment="CENTER" textFill="#26bfbc">
+                              <Label fx:id="lblJmlPembeli" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="65" textAlignment="CENTER" textFill="#26bfbc">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
@@ -191,7 +188,7 @@
                                     <Image url="@../img/IconJumProduk.png" />
                                  </image>
                               </ImageView>
-                              <Label alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="1453" textAlignment="CENTER" textFill="#fa5f7e">
+                              <Label fx:id="lblJmlProduk" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="1453" textAlignment="CENTER" textFill="#fa5f7e">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
