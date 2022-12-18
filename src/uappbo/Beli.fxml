@@ -17,10 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.HomeScreenController">
-<!--    <stylesheets>
-        <URL value="@homescreen.css" />
-    </stylesheets>-->
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.BeliController">
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -33,7 +30,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Home" textFill="WHITE">
+            <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#openHome" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Home" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -48,7 +45,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
+            <Button fx:id="btnProduk" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openProduk" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -78,7 +75,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Penjualan" textFill="WHITE">
+            <Button fx:id="btnPenjualan" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="63.0" mnemonicParsing="false" onAction="#openPenjualan" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Penjualan" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -93,7 +90,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
+            <Button fx:id="btnKategori" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#openKategori" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -147,27 +144,27 @@
                                              </font>
                                           </Label>
                                           <Label layoutX="196.0" layoutY="86.0" text="Barcode*" textFill="WHITE" />
-                                          <TextField layoutX="277.0" layoutY="82.0" prefHeight="0.0" prefWidth="170.0" />
+                                          <TextField fx:id="Barcode" layoutX="277.0" layoutY="82.0" prefHeight="0.0" prefWidth="170.0" />
                                           <Label layoutX="510.0" layoutY="166.0" text="Kategori :" textFill="WHITE" />
                                           <Label layoutX="196.0" layoutY="126.0" text="Jumlah" textFill="WHITE" />
-                                          <TextField layoutX="277.0" layoutY="122.0" prefHeight="25.0" prefWidth="50.0" />
-                                          <Button layoutX="345.0" layoutY="122.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
+                                          <TextField fx:id="Jumlah" layoutX="277.0" layoutY="122.0" prefHeight="25.0" prefWidth="50.0" />
+                                          <Button fx:id="btnBeli" layoutX="345.0" layoutY="122.0" mnemonicParsing="false" onAction="#beliBarang" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
                                              <font>
                                                 <Font name="System Bold" size="12.0" />
                                              </font>
                                           </Button>
-                                          <ChoiceBox layoutX="509.0" layoutY="189.0" prefHeight="25.0" prefWidth="172.0" />
+                                          <ChoiceBox fx:id="boxKategori" layoutX="509.0" layoutY="189.0" onMouseClicked="#choiceKategori" prefHeight="25.0" prefWidth="172.0" />
                                        </children>
                                     </Pane>
                                     <TableView prefHeight="284.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                                        <columns>
-                                          <TableColumn prefWidth="68.5714111328125" text="Barcode" />
-                                          <TableColumn minWidth="0.0" prefWidth="105.14288330078125" text="Kategori" />
-                                          <TableColumn minWidth="0.0" prefWidth="145.14285278320312" text="Nama" />
-                                          <TableColumn minWidth="0.0" prefWidth="133.142822265625" text="Harga" />
-                                          <TableColumn minWidth="0.0" prefWidth="73.142822265625" text="Jumlah" />
-                                          <TableColumn minWidth="0.0" prefWidth="92.5714111328125" text="Diskon" />
-                                          <TableColumn minWidth="0.0" prefWidth="86.2857666015625" text="Expired" />
+                                          <TableColumn fx:id="colBarcode" prefWidth="68.5714111328125" text="Barcode" />
+                                          <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="105.14288330078125" text="Kategori" />
+                                          <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="145.14285278320312" text="Nama" />
+                                          <TableColumn fx:id="colHarga" minWidth="0.0" prefWidth="133.142822265625" text="Harga" />
+                                          <TableColumn fx:id="colJumlah" minWidth="0.0" prefWidth="73.142822265625" text="Jumlah" />
+                                          <TableColumn fx:id="colDiskon" minWidth="0.0" prefWidth="92.5714111328125" text="Diskon" />
+                                          <TableColumn fx:id="colExpired" minWidth="0.0" prefWidth="86.2857666015625" text="Expired" />
                                        </columns>
                                     </TableView>
                                  </children>
