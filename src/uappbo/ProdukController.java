@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -20,13 +19,7 @@ public class ProdukController {
     private TextField Barcode;
 
     @FXML
-    private TextField DayaTahanMkn;
-
-    @FXML
     private TextField DiskonBarang;
-
-    @FXML
-    private TextField DiskonMkn;
 
     @FXML
     private TextField ExpiredBarang;
@@ -35,22 +28,10 @@ public class ProdukController {
     private TextField HargaBarang;
 
     @FXML
-    private TextField HargaMkn;
-
-    @FXML
-    private TextField ID;
-
-    @FXML
     private TextField JmlBarang;
 
     @FXML
-    private TextField JmlhMkn;
-
-    @FXML
     private TextField NamaBarang;
-
-    @FXML
-    private TextField NamaMkn;
 
     @FXML
     private Button btnBeli;
@@ -59,13 +40,7 @@ public class ProdukController {
     private Button btnCekBrng;
 
     @FXML
-    private Button btnCekMkn;
-
-    @FXML
     private Button btnHapusBrng;
-
-    @FXML
-    private Button btnHapusMkn;
 
     @FXML
     private Button btnHome;
@@ -77,19 +52,16 @@ public class ProdukController {
     private ChoiceBox<?> btnKategoriBarang;
 
     @FXML
+    private Button btnMakanan;
+
+    @FXML
     private Button btnPenjualan;
 
     @FXML
     private Button btnTambahBrng;
 
     @FXML
-    private Button btnTambahMkn;
-
-    @FXML
     private TableColumn<?, ?> colBarcode;
-
-    @FXML
-    private TableColumn<?, ?> colDayaMkn;
 
     @FXML
     private TableColumn<?, ?> colDiskonBrng;
@@ -101,19 +73,7 @@ public class ProdukController {
     private TableColumn<?, ?> colHargaBrng;
 
     @FXML
-    private TableColumn<?, ?> colHargaMkn;
-
-    @FXML
-    private TableColumn<?, ?> colID;
-
-    @FXML
     private TableColumn<?, ?> colJmlhBrng;
-
-    @FXML
-    private TableColumn<?, ?> colJmlhDiskon;
-
-    @FXML
-    private TableColumn<?, ?> colJmlhMkn;
 
     @FXML
     private TableColumn<?, ?> colKategoriBrng;
@@ -122,21 +82,7 @@ public class ProdukController {
     private TableColumn<?, ?> colNamaBrng;
 
     @FXML
-    private TableColumn<?, ?> colNamaMkn;
-
-    @FXML
-    private Tab tabBarang;
-
-    @FXML
-    private Tab tabMakanan;
-
-    @FXML
     void cekBarang(ActionEvent event) throws IOException{
-
-    }
-
-    @FXML
-    void cekMakanan(ActionEvent event) throws IOException{
 
     }
 
@@ -146,16 +92,11 @@ public class ProdukController {
     }
 
     @FXML
-    void hapusMakanan(ActionEvent event) throws IOException{
-
-    }
-
-    @FXML
     void openBeli(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("Beli.fxml"));
         
         Stage stage = (Stage) btnBeli.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -163,7 +104,7 @@ public class ProdukController {
         Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
         
         Stage stage = (Stage) btnHome.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -171,7 +112,7 @@ public class ProdukController {
         Parent root = FXMLLoader.load(getClass().getResource("Kategori.fxml"));
         
         Stage stage = (Stage) btnKategori.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -179,17 +120,15 @@ public class ProdukController {
         Parent root = FXMLLoader.load(getClass().getResource("Penjualan.fxml"));
         
         Stage stage = (Stage) btnBeli.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
-
+    
     @FXML
-    void openTabBarang(ActionEvent event) throws IOException{
+    void openMakanan(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("ProdukMakanan.fxml"));
         
-    }
-
-    @FXML
-    void openTabMakanan(ActionEvent event) throws IOException{
-
+        Stage stage = (Stage) btnBeli.getScene().getWindow();
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -199,11 +138,6 @@ public class ProdukController {
 
     @FXML
     void tambahBarang(ActionEvent event) throws IOException{
-
-    }
-
-    @FXML
-    void tambahMakanan(ActionEvent event) throws IOException{
 
     }
 
