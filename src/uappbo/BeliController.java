@@ -29,6 +29,9 @@ public class BeliController {
 
     @FXML
     private Button btnHome;
+    
+    @FXML
+    private Button btnMakanan;
 
     @FXML
     private Button btnKategori;
@@ -75,7 +78,7 @@ public class BeliController {
         Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
         
         Stage stage = (Stage) btnHome.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -83,7 +86,7 @@ public class BeliController {
         Parent root = FXMLLoader.load(getClass().getResource("Kategori.fxml"));
         
         Stage stage = (Stage) btnKategori.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -91,7 +94,7 @@ public class BeliController {
         Parent root = FXMLLoader.load(getClass().getResource("Penjualan.fxml"));
         
         Stage stage = (Stage) btnPenjualan.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -99,7 +102,15 @@ public class BeliController {
         Parent root = FXMLLoader.load(getClass().getResource("Produk.fxml"));
         
         Stage stage = (Stage) btnProduk.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
+    }
+    
+    @FXML
+    void openMakanan(ActionEvent event) throws IOException{
+        Parent root = FXMLLoader.load(getClass().getResource("BeliMakanan.fxml"));
+        
+        Stage stage = (Stage) btnMakanan.getScene().getWindow();
+        stage.setScene(new Scene(root,960,540));
     }
 
 }
