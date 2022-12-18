@@ -47,9 +47,6 @@ public class PenjualanController {
     private TableColumn<?, ?> colJumlah;
 
     @FXML
-    private TableColumn<?, ?> colKategori;
-
-    @FXML
     private TableColumn<?, ?> colNama;
 
     @FXML
