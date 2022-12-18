@@ -14,10 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.HomeScreenController">
-<!--    <stylesheets>
-        <URL value="@homescreen.css" />
-    </stylesheets>-->
+<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.PenjualanController">
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -30,7 +27,7 @@
                   </ImageView>
                </children>
             </Pane>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Home" textFill="WHITE">
+            <Button fx:id="btnHome" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#openHome" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Home" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -45,7 +42,7 @@
                   <Font name="System Bold" size="11.0" />
                </font>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
+            <Button fx:id="btnProduk" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#openProduk" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Produk" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -60,7 +57,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Beli" textFill="WHITE">
+            <Button fx:id="btnBeli" alignment="BASELINE_LEFT" graphicTextGap="22.0" mnemonicParsing="false" onAction="#openBeli" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Beli" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -90,7 +87,7 @@
                   <Insets left="50.0" />
                </padding>
             </Button>
-            <Button alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
+            <Button fx:id="btnKategori" alignment="BASELINE_LEFT" graphicTextGap="22.0" layoutX="10.0" layoutY="116.0" mnemonicParsing="false" onAction="#openKategori" prefHeight="53.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Kategori" textFill="WHITE">
                <graphic>
                   <ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
                      <image>
@@ -138,13 +135,13 @@
                            </font>
                         </Label>
                         <Label layoutX="95.0" layoutY="109.0" text="ID Pesenan*" textFill="WHITE" />
-                        <TextField layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="235.0" />
-                        <Button layoutX="488.0" layoutY="105.0" mnemonicParsing="false" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
+                        <TextField fx:id="IDPesanan" layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="235.0" />
+                        <Button fx:id="btnHapus" layoutX="488.0" layoutY="105.0" mnemonicParsing="false" onAction="#hapusData" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button layoutX="442.0" layoutY="105.0" mnemonicParsing="false" style="-fx-background-color: #26bfbc;" text="Cek" textFill="WHITE">
+                        <Button fx:id="btnCek" layoutX="442.0" layoutY="105.0" mnemonicParsing="false" onAction="#cekData" style="-fx-background-color: #26bfbc;" text="Cek" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -153,12 +150,12 @@
                   </Pane>
                   <TableView prefHeight="415.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
-                        <TableColumn prefWidth="81.7142333984375" text="ID" />
-                        <TableColumn minWidth="0.0" prefWidth="122.85711669921875" text="Kategori" />
-                        <TableColumn minWidth="0.0" prefWidth="132.00003051757812" text="Nama" />
-                        <TableColumn minWidth="0.0" prefWidth="158.857177734375" text="Harga" />
-                        <TableColumn minWidth="0.0" prefWidth="83.4285888671875" text="Diskon" />
-                        <TableColumn minWidth="0.0" prefWidth="124.5714111328125" text="Jumlah" />
+                        <TableColumn fx:id="colID" prefWidth="81.7142333984375" text="ID" />
+                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="122.85711669921875" text="Kategori" />
+                        <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="132.00003051757812" text="Nama" />
+                        <TableColumn fx:id="colHarga" minWidth="0.0" prefWidth="158.857177734375" text="Harga" />
+                        <TableColumn fx:id="colDiskon" minWidth="0.0" prefWidth="83.4285888671875" text="Diskon" />
+                        <TableColumn fx:id="colJumlah" minWidth="0.0" prefWidth="124.5714111328125" text="Jumlah" />
                      </columns>
                   </TableView>
                </children>
