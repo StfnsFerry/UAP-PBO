@@ -12,17 +12,16 @@ public class Makanan extends Produk {
     private int id;
     private int daya_tahan;
     
-   public Makanan(){}
+   public Makanan(int id, int jumlah){
+        super(jumlah);
+        this.id = id;
+    }
     
-   public Makanan(int id){
-      this.id = id;
-   }
-    
-   public Makanan(int id_produk, int id,String namaProduk,double harga, int jumlah,double diskon,int daya_tahan){
-    super(namaProduk,harga,jumlah,diskon,id_produk);
-    this.id = id;
-    this.daya_tahan = daya_tahan;
-   }
+    public Makanan(int id,String namaProduk,double harga, int jumlah,double diskon,int daya_tahan){
+        super(namaProduk,harga,jumlah,diskon);
+        this.id = id;
+        this.daya_tahan = daya_tahan;
+    }
     
     public boolean isSpoiled(){
         return true;
@@ -44,4 +43,3 @@ public class Makanan extends Produk {
         this.daya_tahan = daya_tahan;
     }
 }
-
