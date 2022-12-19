@@ -12,15 +12,14 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class KategoriController {
+    
+    KasirModel kategori = new KasirModel();
 
     @FXML
     private TextField NamaKategori;
 
     @FXML
     private Button btnBeli;
-
-    @FXML
-    private Button btnCek;
 
     @FXML
     private Button btnHapus;
@@ -38,22 +37,26 @@ public class KategoriController {
     private Button btnTambah;
 
     @FXML
-    private TableColumn<?, ?> colHarga;
-
-    @FXML
     private TableColumn<?, ?> colKategori;
-
+    
     @FXML
-    private TableColumn<?, ?> colNama;
-
-    @FXML
-    void cekKategori(ActionEvent event) throws IOException{
-        
+    void tambahKategori(ActionEvent event) throws IOException{
+        Kategori k = new Kategori(NamaKategori.getText());
+        kategori.addKategori(k);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kategori.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnTambah.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
     @FXML
     void hapusKategori(ActionEvent event) throws IOException{
-
+        Kategori k = new Kategori(NamaKategori.getText());
+        kategori.deleteKategori(k);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Kategori.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnHapus.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
     @FXML
@@ -61,7 +64,7 @@ public class KategoriController {
         Parent root = FXMLLoader.load(getClass().getResource("Beli.fxml"));
         
         Stage stage = (Stage) btnBeli.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -69,7 +72,7 @@ public class KategoriController {
         Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
         
         Stage stage = (Stage) btnHome.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -77,7 +80,7 @@ public class KategoriController {
         Parent root = FXMLLoader.load(getClass().getResource("Penjualan.fxml"));
         
         Stage stage = (Stage) btnPenjualan.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -85,12 +88,7 @@ public class KategoriController {
         Parent root = FXMLLoader.load(getClass().getResource("Produk.fxml"));
         
         Stage stage = (Stage) btnProduk.getScene().getWindow();
-        stage.setScene(new Scene(root));
-    }
-
-    @FXML
-    void tambahKategori(ActionEvent event) throws IOException{
-
+        stage.setScene(new Scene(root,960,540));
     }
 
 }
