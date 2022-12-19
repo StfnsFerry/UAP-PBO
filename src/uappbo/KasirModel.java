@@ -202,6 +202,37 @@ public class KasirModel {
 //            System.out.println("Data Gagal dihapus");
 //        }  
 //    }
+    
+    //Kategori
+    public void addKategori(Kategori kategori){
+        String insertK = "INSERT INTO kategori (`kategori`) VALUES ('"+kategori.getNama_kategori()+"');";
+       
+        try {
+           if(CONN.createStatement().executeUpdate(insertK)>0){
+            System.out.println("Kategori Berhasil Dimasukkan");
+           }else{
+               System.out.println("Kategori yang dimasukkan sudah ada");
+           }     
+        } catch (SQLException ex) {
+            Logger.getLogger(KasirModel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Kategori Gagal Dimasukkan");
+        }
+    }
+
+    public void deleteKategori(Kategori kategori){
+        String deleteK = "DELETE FROM kategori WHERE kategori = '"+kategori.getNama_kategori()+"';";
+       
+        try {
+           if(CONN.createStatement().executeUpdate(deleteK)>0){
+            System.out.println("Kategori Berhasil Dihapus");
+           }else{
+               System.out.println("Kategori gagal di hapus");
+           }     
+        } catch (SQLException ex) {
+            Logger.getLogger(KasirModel.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("Kategori Gagal Dihapus");
+        }
+    }    
 
 }
 
