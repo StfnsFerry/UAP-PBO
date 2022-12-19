@@ -26,6 +26,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ProdukController implements Initializable {
+    
+    KasirModel barang = new KasirModel();
 
     @FXML
     private TextField Barcode;
@@ -44,6 +46,9 @@ public class ProdukController implements Initializable {
 
     @FXML
     private TextField NamaBarang;
+    
+    @FXML
+    private TextField Kategori;
 
     @FXML
     private Button btnBeli;
@@ -96,7 +101,7 @@ public class ProdukController implements Initializable {
     }
 
     @FXML
-    void hapusBarang(ActionEvent event) throws IOException{
+    void hapusBarang(ActionEvent event) throws IOException,SQLException{
         Barang b = new Barang(Barcode.getText());
         barang.deleteProduk(b);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
@@ -130,7 +135,7 @@ public class ProdukController implements Initializable {
    }
     
      @FXML
-    void tambahBarang(ActionEvent event) throws IOException{   
+    void tambahBarang(ActionEvent event) throws IOException,SQLException{   
 //        ObservableList<Kategori> ktg = kategori.getKategori();
         Barang b = new Barang(
                 Barcode.getText(),
