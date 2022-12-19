@@ -1,6 +1,9 @@
 package uappbo;
 
+import com.mysql.cj.conf.IntegerProperty;
+import com.mysql.cj.conf.StringProperty;
 import java.io.IOException;
+import javafx.beans.property.DoubleProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -56,22 +59,22 @@ public class ProdukMakananController {
     private Button btnTambahMkn;
 
     @FXML
-    private TableColumn<?, ?> colDayaMkn;
+    private TableColumn<Makanan, IntegerProperty> colDayaMkn;
 
     @FXML
-    private TableColumn<?, ?> colDiskonMkn;
+    private TableColumn<Makanan, DoubleProperty> colDiskonMkn;
 
     @FXML
-    private TableColumn<?, ?> colHargaMkn;
+    private TableColumn<Makanan, DoubleProperty> colHargaMkn;
 
     @FXML
-    private TableColumn<?, ?> colID;
+    private TableColumn<Makanan, IntegerProperty> colID;
 
     @FXML
-    private TableColumn<?, ?> colJmlhMkn;
+    private TableColumn<Makanan, IntegerProperty> colJmlhMkn;
 
     @FXML
-    private TableColumn<?, ?> colNamaMkn;
+    private TableColumn<Makanan, StringProperty> colNamaMkn;
 
     @FXML
     void cekMkn(ActionEvent event) throws IOException{
