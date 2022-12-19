@@ -25,16 +25,20 @@ public class KasirModel {
     
     //BARANG
     public void addProduk(Barang barang) throws SQLException{
+        String insertP = "INSERT INTO data_produk (`nama_produk`, `harga`, `jumlah`, `diskon`, `barcode`) VALUES ('"
+                + barang.getNama_produk()+ "','"
+                + barang.getHarga()+"','"   
+                + barang.getJumlah()+"','"
+                + barang.getDiskon()+ "','" 
+                + barang.getBarcode()+ "');";
+        
         String insertB = "INSERT INTO data_barang VALUES ('"
-                + barang.getBarcode()+ "','"
-                + barang.getExpired()+"','"
-                + barang.getKategori()+"','"
-                + barang.getNama_produk()+ "','" 
-                + barang.getHarga()+ "','" 
-                + barang.getJumlah() +"','"
-                + barang.getDiskon() +"'"+ ");";
+                +barang.getBarcode()+ "','"
+                +barang.getKategori()+"','"
+                +barang.getExpired()+"');";
+        
         try {
-           if(CONN.createStatement().executeUpdate(insertB)>0){
+           if(CONN.createStatement().executeUpdate(insertP)>0&&CONN.createStatement().executeUpdate(insertB)>0){
             System.out.println("Data Berhasil Dimasukkan");
            }else{
                System.out.println("Data yang dimasukkan sudah ada");
@@ -46,10 +50,11 @@ public class KasirModel {
     }    
     
     public void deleteProduk(Barang barang) throws SQLException{
+        String deleteP = "DELETE FROM data_produk WHERE barcode = '"+ barang.getBarcode()+"';";
         String deleteB = "DELETE FROM data_barang WHERE barcode = '"+ barang.getBarcode()+"';";
 
         try {
-           if(CONN.createStatement().executeUpdate(deleteB)>0){
+           if(CONN.createStatement().executeUpdate(deleteP)>0&&CONN.createStatement().executeUpdate(deleteB)>0){
             System.out.println("Data Berhasil Dihapus");
            }else{
                System.out.println("Data Gagal dihapus");
