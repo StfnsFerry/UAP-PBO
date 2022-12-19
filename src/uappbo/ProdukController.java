@@ -73,25 +73,25 @@ public class ProdukController implements Initializable {
     private Button btnTambahBrng;
 
     @FXML
-    private TableColumn<?, ?> colBarcode;
+    private TableColumn<Barang, StringProperty> colBarcode;
 
     @FXML
-    private TableColumn<?, ?> colDiskonBrng;
+    private TableColumn<Barang, DoubleProperty> colDiskonBrng;
 
     @FXML
-    private TableColumn<?, ?> colExpiredBrng;
+    private TableColumn<Barang, StringProperty> colExpiredBrng;
 
     @FXML
-    private TableColumn<?, ?> colHargaBrng;
+    private TableColumn<Barang, DoubleProperty> colHargaBrng;
 
     @FXML
-    private TableColumn<?, ?> colJmlhBrng;
+    private TableColumn<Barang, IntegerProperty> colJmlhBrng;
 
     @FXML
-    private TableColumn<?, ?> colKategoriBrng;
+    private TableColumn<Barang, StringProperty> colKategoriBrng;
 
     @FXML
-    private TableColumn<?, ?> colNamaBrng;
+    private TableColumn<Barang, StringProperty> colNamaBrng;
 
     @FXML
     void cekBarang(ActionEvent event) throws IOException{
@@ -126,6 +126,25 @@ public class ProdukController implements Initializable {
 //       TabelBarang.setItems(null);
 //       TabelBarang.setItems(barang);
    }
+    
+     @FXML
+    void tambahBarang(ActionEvent event) throws IOException{   
+//        ObservableList<Kategori> ktg = kategori.getKategori();
+        Barang b = new Barang(
+                Barcode.getText(),
+                NamaBarang.getText(),
+                Double.parseDouble(HargaBarang.getText()),
+                Integer.parseInt(JmlBarang.getText()),
+                Double.parseDouble(DiskonBarang.getText()),
+                ExpiredBarang.getText(),
+                btnKategoriBarang.getText() //error
+        );
+        barang.addProduk(b);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnTambahBrng.getScene().getWindow();
+        stage.setScene(new Scene(root));
+    }
 
     @FXML
     void openBeli(ActionEvent event) throws IOException{
