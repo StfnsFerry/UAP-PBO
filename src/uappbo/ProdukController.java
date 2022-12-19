@@ -1,19 +1,31 @@
 package uappbo;
 
+import com.mysql.cj.conf.IntegerProperty;
+import com.mysql.cj.conf.StringProperty;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.DoubleProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class ProdukController {
+public class ProdukController implements Initializable {
 
     @FXML
     private TextField Barcode;
@@ -90,6 +102,30 @@ public class ProdukController {
     void hapusBarang(ActionEvent event) throws IOException{
 
     }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        barang = new KasirModel(); 
+        try { 
+            showData();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
+    
+    public void showData() throws SQLException{
+       ObservableList<Barang> brg = barang.getBarang(); 
+
+       colBarcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+       colExpiredBrng.setCellValueFactory(new PropertyValueFactory<>("expired"));
+       colKategoriBrng.setCellValueFactory(new PropertyValueFactory<>("kategori"));
+       colNamaBrng.setCellValueFactory(new PropertyValueFactory<>("nama_produk"));
+       colHargaBrng.setCellValueFactory(new PropertyValueFactory<>("harga"));
+       colJmlhBrng.setCellValueFactory(new PropertyValueFactory<>("jumlah"));
+       colDiskonBrng.setCellValueFactory(new PropertyValueFactory<>("diskon"));
+//       TabelBarang.setItems(null);
+//       TabelBarang.setItems(barang);
+   }
 
     @FXML
     void openBeli(ActionEvent event) throws IOException{
@@ -133,11 +169,6 @@ public class ProdukController {
 
     @FXML
     void pilihKategori(MouseEvent event) throws IOException{
-
-    }
-
-    @FXML
-    void tambahBarang(ActionEvent event) throws IOException{
 
     }
 
