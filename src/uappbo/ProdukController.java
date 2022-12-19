@@ -61,9 +61,6 @@ public class ProdukController implements Initializable {
     private Button btnKategori;
 
     @FXML
-    private ChoiceBox<?> btnKategoriBarang;
-
-    @FXML
     private Button btnMakanan;
 
     @FXML
@@ -100,7 +97,12 @@ public class ProdukController implements Initializable {
 
     @FXML
     void hapusBarang(ActionEvent event) throws IOException{
-
+        Barang b = new Barang(Barcode.getText());
+        barang.deleteProduk(b);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnHapusBrng.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
     
     @Override
@@ -137,7 +139,7 @@ public class ProdukController implements Initializable {
                 Integer.parseInt(JmlBarang.getText()),
                 Double.parseDouble(DiskonBarang.getText()),
                 ExpiredBarang.getText(),
-                btnKategoriBarang.getText() //error
+                Integer.parseInt(Kategori.getText())
         );
         barang.addProduk(b);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
@@ -186,9 +188,5 @@ public class ProdukController implements Initializable {
         stage.setScene(new Scene(root,960,540));
     }
 
-    @FXML
-    void pilihKategori(MouseEvent event) throws IOException{
-
-    }
 
 }
