@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package uap_pbo;
+package uappbo;
 
 /**
  *
@@ -11,7 +11,7 @@ package uap_pbo;
 public class Barang extends Produk {
     private String barcode;
     private String expired;
-    private int kategori;
+    private int id_kategori;
     
     public Barang(){}
     
@@ -21,14 +21,14 @@ public class Barang extends Produk {
     
     public Barang(String namaProduk,int kategori){
         super(namaProduk);
-        this.kategori = kategori;
+        this.id_kategori = id_kategori;
     }
     
-    public Barang(int id_produk, String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, int kategori){
-        super(namaProduk,harga,jumlah,diskon,id_produk);
+    public Barang(String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, int id_kategori){
+        super(namaProduk,harga,jumlah,diskon);
         this.barcode = barcode;
         this.expired = expired;
-        this.kategori = kategori;        
+        this.id_kategori = id_kategori;
     }
     
     public boolean isExpired(){
@@ -56,10 +56,10 @@ public class Barang extends Produk {
     }
 
     public int getKategori() {
-        return kategori;
+        return id_kategori;
     }
 
-    public void setKategori(int kategori) {
-        this.kategori = kategori;
+    public void setKategori(int id_kategori) {
+        this.id_kategori = id_kategori;
     }
 }
