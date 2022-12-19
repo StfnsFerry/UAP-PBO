@@ -134,19 +134,14 @@
                               <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label layoutX="83.0" layoutY="109.0" text="Nama Kategori" textFill="WHITE" />
-                        <TextField fx:id="NamaKategori" layoutX="187.0" layoutY="105.0" prefHeight="25.0" prefWidth="235.0" />
-                        <Button fx:id="btnTambah" layoutX="436.0" layoutY="105.0" mnemonicParsing="false" onAction="#tambahKategori" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
+                        <Label layoutX="113.0" layoutY="109.0" text="Nama Kategori" textFill="WHITE" />
+                        <TextField fx:id="NamaKategori" layoutX="217.0" layoutY="105.0" prefHeight="25.0" prefWidth="235.0" />
+                        <Button fx:id="btnTambah" layoutX="466.0" layoutY="105.0" mnemonicParsing="false" onAction="#tambahKategori" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <Button fx:id="btnHapus" layoutX="554.0" layoutY="105.0" mnemonicParsing="false" onAction="#hapusKategori" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnCek" layoutX="508.0" layoutY="105.0" mnemonicParsing="false" onAction="#cekKategori" style="-fx-background-color: #26bfbc;" text="Cek" textFill="WHITE">
+                        <Button fx:id="btnHapus" layoutX="535.0" layoutY="105.0" mnemonicParsing="false" onAction="#hapusKategori" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -155,9 +150,7 @@
                   </Pane>
                   <TableView prefHeight="415.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
-                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="219.99993896484375" text="Kategori" />
-                        <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="213.14291381835938" text="Nama" />
-                        <TableColumn fx:id="colHarga" minWidth="0.0" prefWidth="267.4285888671875" text="Harga" />
+                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="700.000004359654" text="Kategori" />
                      </columns>
                   </TableView>
                </children>
