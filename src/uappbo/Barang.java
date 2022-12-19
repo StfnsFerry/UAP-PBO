@@ -11,15 +11,15 @@ package uappbo;
 public class Barang extends Produk {
     private String barcode;
     private String expired;
-    private String kategori;
+    private int kategori;
     
-    public Barang(String barcode, int jumlah, String kategori){
+    public Barang(String barcode, int jumlah, int kategori){
         super(jumlah);
         this.barcode = barcode;
         this.kategori = kategori;
     }
     
-    public Barang(String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, String kategori){
+    public Barang(String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, int kategori){
         super(namaProduk,harga,jumlah,diskon);
         this.barcode = barcode;
         this.expired = expired;
@@ -42,11 +42,11 @@ public class Barang extends Produk {
         this.expired = expired;
     }
 
-    public String getKategori() {
+    public int getKategori() {
         return kategori;
     }
 
-    public void setKategori(String kategori) {
+    public void setKategori(int kategori) {
         this.kategori = kategori;
     }   
     
