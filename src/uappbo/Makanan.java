@@ -1,23 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package uap_pbo;
+package uappbo;
 
-/**
- *
- * @author J I H A N
- */
 public class Makanan extends Produk {
     private int id;
     private int daya_tahan;
+
+    public Makanan(int id) {
+        this.id = id;
+    }   
     
-   public Makanan(int id, int jumlah){
+    public Makanan(int id, int jumlah){
         super(jumlah);
         this.id = id;
     }
     
-    public Makanan(int id,String namaProduk,double harga, int jumlah,double diskon,int daya_tahan){
+    public Makanan(int id,String namaProduk,double harga, double diskon,int jumlah,int daya_tahan){
         super(namaProduk,harga,jumlah,diskon);
         this.id = id;
         this.daya_tahan = daya_tahan;
