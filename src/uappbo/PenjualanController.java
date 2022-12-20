@@ -47,6 +47,9 @@ public class PenjualanController {
     private TableColumn<?, ?> colJumlah;
 
     @FXML
+    private TableColumn<?, ?> colKategori;
+
+    @FXML
     private TableColumn<?, ?> colNama;
 
     @FXML
@@ -64,7 +67,7 @@ public class PenjualanController {
         Parent root = FXMLLoader.load(getClass().getResource("Beli.fxml"));
         
         Stage stage = (Stage) btnBeli.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -72,7 +75,7 @@ public class PenjualanController {
         Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
         
         Stage stage = (Stage) btnHome.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -80,7 +83,7 @@ public class PenjualanController {
         Parent root = FXMLLoader.load(getClass().getResource("Kategori.fxml"));
         
         Stage stage = (Stage) btnKategori.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -88,7 +91,7 @@ public class PenjualanController {
         Parent root = FXMLLoader.load(getClass().getResource("Produk.fxml"));
         
         Stage stage = (Stage) btnProduk.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
 }
