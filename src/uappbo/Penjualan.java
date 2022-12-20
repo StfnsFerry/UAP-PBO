@@ -1,15 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package uap_pbo;
+package uappbo;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author J I H A N
- */
+
 public class Penjualan implements ProductCounter {
 //    private ArrayList<Produk> listProduk = new ArrayList<Produk>();
     String listProduk;
