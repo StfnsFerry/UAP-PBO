@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.HomeScreenController">
+<AnchorPane id="AnchorPane" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.HomeScreenController">
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -102,7 +102,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="*Nama" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -135,12 +135,11 @@
                               <Insets left="50.0" />
                            </padding>
                         </Label>
-                        <Label fx:id="lblNama" prefHeight="100.0" prefWidth="406.0" text="*Nama" textFill="WHITE">
+                        <Label fx:id="lblNama" prefHeight="100.0" prefWidth="406.0" text="UAP PBO" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="30.0" />
                            </font>
                         </Label>
-                        <Label layoutX="148.0" layoutY="10.0" prefHeight="100.0" prefWidth="150.0" text="ID Kasir : 123456789" textFill="WHITE" />
                      </children>
                   </HBox>
                   <HBox alignment="CENTER" layoutX="3.0" layoutY="145.0" prefHeight="276.0" prefWidth="695.0" spacing="5.0">
@@ -152,7 +151,7 @@
                                     <Image url="@../img/iconToPenjualan.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="lblTotPenjualan" alignment="CENTER" prefHeight="17.0" prefWidth="171.0" text="142" textAlignment="CENTER" textFill="#2a73ff">
+                              <Label fx:id="lblTotPenjualan" alignment="CENTER" prefHeight="17.0" prefWidth="171.0" text="0" textAlignment="CENTER" textFill="#2a73ff">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
@@ -170,7 +169,7 @@
                                     <Image url="@../img/IconToPembeli.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="lblJmlPembeli" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="65" textAlignment="CENTER" textFill="#26bfbc">
+                              <Label fx:id="lblJmlPembeli" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="0" textAlignment="CENTER" textFill="#26bfbc">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
@@ -188,7 +187,7 @@
                                     <Image url="@../img/IconJumProduk.png" />
                                  </image>
                               </ImageView>
-                              <Label fx:id="lblJmlProduk" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="1453" textAlignment="CENTER" textFill="#fa5f7e">
+                              <Label fx:id="lblJmlProduk" alignment="CENTER" prefHeight="17.0" prefWidth="175.0" text="0" textAlignment="CENTER" textFill="#fa5f7e">
                                  <font>
                                     <Font name="System Bold" size="40.0" />
                                  </font>
