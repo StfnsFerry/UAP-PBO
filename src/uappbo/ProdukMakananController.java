@@ -3,19 +3,30 @@ package uappbo;
 import com.mysql.cj.conf.IntegerProperty;
 import com.mysql.cj.conf.StringProperty;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.DoubleProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class ProdukMakananController {
+public class ProdukMakananController implements Initializable{
 
+    KasirModel makanan = new KasirModel();
+    
     @FXML
     private TextField DayaMkn;
 
@@ -41,9 +52,6 @@ public class ProdukMakananController {
     private Button btnBeli;
 
     @FXML
-    private Button btnCekMkn;
-
-    @FXML
     private Button btnHapusMkn;
 
     @FXML
@@ -57,7 +65,10 @@ public class ProdukMakananController {
 
     @FXML
     private Button btnTambahMkn;
-
+    
+    @FXML
+    private TableView<Makanan> tableItem;
+    
     @FXML
     private TableColumn<Makanan, IntegerProperty> colDayaMkn;
 
@@ -76,14 +87,15 @@ public class ProdukMakananController {
     @FXML
     private TableColumn<Makanan, StringProperty> colNamaMkn;
 
-    @FXML
-    void cekMkn(ActionEvent event) throws IOException{
-
-    }
 
     @FXML
-    void hapusMkn(ActionEvent event) throws IOException{
-
+    void hapusMkn(ActionEvent event) throws IOException, SQLException{
+        Makanan m = new Makanan(Integer.parseInt(ID.getText()));
+        makanan.deleteMakanan(m);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProdukMakanan.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnHapusMkn.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
     @FXML
@@ -127,8 +139,37 @@ public class ProdukMakananController {
     }
 
     @FXML
-    void tambahMkn(ActionEvent event) throws IOException{
-
+    void tambahMkn(ActionEvent event) throws IOException, SQLException{
+        Makanan m = new Makanan(Integer.parseInt(ID.getText()),NamaMkn.getText(),Double.parseDouble(HargaMkn.getText()),
+                Double.parseDouble(DiskonMkn.getText()),Integer.parseInt(JumlahMkn.getText()),Integer.parseInt(DayaMkn.getText()));
+        makanan.addMakanan(m);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("ProdukMakanan.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnTambahMkn.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        makanan = new KasirModel(); 
+        try { 
+            showData();
+        } catch (SQLException ex) {
+            Logger.getLogger(ProdukMakananController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
+    
+    public void showData() throws SQLException{
+       ObservableList<Makanan> mkn = makanan.getMakanan(); 
+
+       colID.setCellValueFactory(new PropertyValueFactory<>("id"));
+       colNamaMkn.setCellValueFactory(new PropertyValueFactory<>("nama_produk"));
+       colHargaMkn.setCellValueFactory(new PropertyValueFactory<>("harga"));
+       colJmlhMkn.setCellValueFactory(new PropertyValueFactory<>("jumlah"));
+       colDiskonMkn.setCellValueFactory(new PropertyValueFactory<>("diskon"));
+       colDayaMkn.setCellValueFactory(new PropertyValueFactory<>("daya_tahan"));
+       
+       tableItem.setItems(mkn);
+   }
 
 }
