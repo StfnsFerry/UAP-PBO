@@ -104,7 +104,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -148,9 +148,10 @@
                         </Button>
                      </children>
                   </Pane>
-                  <TableView prefHeight="415.0" prefWidth="701.0" style="-fx-background-color: #020314;">
+                  <TableView fx:id="tableItem" prefHeight="415.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
-                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="700.000004359654" text="Kategori" />
+                        <TableColumn fx:id="colID" minWidth="0.0" prefWidth="212.0" text="ID" />
+                        <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="488.0000305175781" text="Kategori" />
                      </columns>
                   </TableView>
                </children>
