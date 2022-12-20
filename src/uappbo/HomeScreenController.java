@@ -31,9 +31,6 @@ public class HomeScreenController {
     private Label lblJmlProduk;
 
     @FXML
-    private Label lblNama;
-
-    @FXML
     private Label lblTotPenjualan;
 
     @FXML
@@ -41,7 +38,7 @@ public class HomeScreenController {
         Parent root = FXMLLoader.load(getClass().getResource("Beli.fxml"));
         
         Stage stage = (Stage) btnBeli.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -49,7 +46,7 @@ public class HomeScreenController {
         Parent root = FXMLLoader.load(getClass().getResource("Kategori.fxml"));
         
         Stage stage = (Stage) btnKategori.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -57,7 +54,7 @@ public class HomeScreenController {
         Parent root = FXMLLoader.load(getClass().getResource("Penjualan.fxml"));
         
         Stage stage = (Stage) btnPenjualan.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
     @FXML
@@ -65,7 +62,7 @@ public class HomeScreenController {
         Parent root = FXMLLoader.load(getClass().getResource("Produk.fxml"));
         
         Stage stage = (Stage) btnProduk.getScene().getWindow();
-        stage.setScene(new Scene(root));
+        stage.setScene(new Scene(root,960,540));
     }
 
 }
