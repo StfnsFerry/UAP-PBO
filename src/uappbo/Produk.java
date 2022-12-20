@@ -1,13 +1,5 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-package uap_pbo;
+package uappbo;
 
-/**
- *
- * @author J I H A N
- */
 public class Produk {
     private int id_produk;
     private String namaProduk;
@@ -15,9 +7,14 @@ public class Produk {
     private int jumlah;
     private double diskon;
     
-    public Produk(String namaProduk){
+    public Produk(int jumlah){
+        this.jumlah = jumlah;
+    }
+
+    public Produk(String namaProduk) {
         this.namaProduk = namaProduk;
     }
+    
     
     public Produk(){}
     
@@ -25,6 +22,7 @@ public class Produk {
         this.namaProduk = nama_produk;
         this.harga = harga;
     }
+      
     
     public Produk(String nama_produk, double harga,int jumlah,double diskon,int id_produk){
         this.namaProduk = nama_produk;
