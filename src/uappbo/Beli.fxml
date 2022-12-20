@@ -2,7 +2,6 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -105,7 +104,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -137,15 +136,13 @@
                         </Label>
                         <Label layoutX="196.0" layoutY="92.0" text="Barcode*" textFill="WHITE" />
                         <TextField fx:id="Barcode" layoutX="277.0" layoutY="88.0" prefHeight="0.0" prefWidth="171.0" />
-                        <Label layoutX="510.0" layoutY="172.0" text="Kategori :" textFill="WHITE" />
                         <Label layoutX="196.0" layoutY="132.0" text="Jumlah" textFill="WHITE" />
                         <TextField fx:id="Jumlah" layoutX="277.0" layoutY="128.0" prefHeight="25.0" prefWidth="50.0" />
-                        <Button fx:id="btnBeli" layoutX="345.0" layoutY="128.0" mnemonicParsing="false" onAction="#beliBarang" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
+                        <Button fx:id="btnBuy" layoutX="345.0" layoutY="128.0" mnemonicParsing="false" onAction="#beliBarang" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
-                        <ChoiceBox fx:id="boxKategori" layoutX="509.0" layoutY="195.0" onMouseClicked="#choiceKategori" prefHeight="25.0" prefWidth="172.0" />
                         <Button fx:id="btnMakanan" layoutX="47.0" layoutY="195.0" mnemonicParsing="false" onAction="#openMakanan" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #ffbf00;" text="Makanan">
                            <font>
                               <Font name="System Bold" size="12.0" />
@@ -153,7 +150,7 @@
                         </Button>
                      </children>
                   </Pane>
-                  <TableView layoutY="250.0" prefHeight="284.0" prefWidth="701.0" style="-fx-background-color: #020314;">
+                  <TableView fx:id="tableItem" layoutY="250.0" prefHeight="284.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
                         <TableColumn fx:id="colBarcode" prefWidth="68.5714111328125" text="Barcode" />
                         <TableColumn fx:id="colKategori" minWidth="0.0" prefWidth="105.14288330078125" text="Kategori" />
