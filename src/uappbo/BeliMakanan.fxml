@@ -15,9 +15,6 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.BeliMakananController">
-<!--    <stylesheets>
-        <URL value="@homescreen.css" />
-    </stylesheets>-->
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -107,7 +104,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -141,7 +138,7 @@
                         <TextField fx:id="ID" layoutX="277.0" layoutY="88.0" prefHeight="0.0" prefWidth="171.0" />
                         <Label layoutX="196.0" layoutY="132.0" text="Jumlah" textFill="WHITE" />
                         <TextField fx:id="Jumlah" layoutX="277.0" layoutY="128.0" prefHeight="25.0" prefWidth="50.0" />
-                        <Button fx:id="btnBeli" layoutX="345.0" layoutY="128.0" mnemonicParsing="false" onAction="#beliMakanan" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
+                        <Button fx:id="btnBuy" layoutX="345.0" layoutY="128.0" mnemonicParsing="false" onAction="#beliMakanan" prefHeight="25.0" prefWidth="102.0" style="-fx-background-color: #2a73ff;" text="Beli" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -153,7 +150,7 @@
                         </Button>
                      </children>
                   </Pane>
-                  <TableView layoutY="250.0" prefHeight="284.0" prefWidth="701.0" style="-fx-background-color: #020314;">
+                  <TableView fx:id="tableItem" layoutY="250.0" prefHeight="284.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
                         <TableColumn fx:id="colID" prefWidth="101.142822265625" text="ID" />
                         <TableColumn fx:id="colNama" minWidth="0.0" prefWidth="197.14291381835938" text="Nama" />
