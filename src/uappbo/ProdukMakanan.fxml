@@ -15,9 +15,6 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #020314;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="uappbo.ProdukMakananController">
-<!--    <stylesheets>
-        <URL value="@homescreen.css" />
-    </stylesheets>-->
    <children>
       <VBox prefHeight="540.0" prefWidth="257.0" style="-fx-background-color: #05071F;">
          <children>
@@ -107,7 +104,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -148,17 +145,12 @@
                         <Label layoutX="383.0" layoutY="62.0" text="Diskon" textFill="WHITE" />
                         <Label layoutX="383.0" layoutY="105.0" text="Jumlah" textFill="WHITE" />
                         <Label layoutX="383.0" layoutY="149.0" text="Daya Tahan" textFill="WHITE" />
-                        <Button fx:id="btnTambahMkn" layoutX="464.0" layoutY="190.0" mnemonicParsing="false" onAction="#tambahMkn" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
+                        <Button fx:id="btnTambahMkn" layoutX="509.0" layoutY="190.0" mnemonicParsing="false" onAction="#tambahMkn" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
                         <Button fx:id="btnHapusMkn" layoutX="582.0" layoutY="190.0" mnemonicParsing="false" onAction="#hapusMkn" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnCekMkn" layoutX="536.0" layoutY="190.0" mnemonicParsing="false" onAction="#cekMkn" style="-fx-background-color: #26bfbc;" text="Cek" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -171,7 +163,7 @@
                         <TextField fx:id="DayaMkn" layoutX="464.0" layoutY="145.0" prefHeight="0.0" prefWidth="170.0" />
                      </children>
                   </Pane>
-                  <TableView layoutY="249.0" prefHeight="291.0" prefWidth="701.0" style="-fx-background-color: #020314;">
+                  <TableView fx:id="tableItem" layoutY="249.0" prefHeight="291.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
                         <TableColumn fx:id="colID" prefWidth="72.5714111328125" text="ID" />
                         <TableColumn fx:id="colNamaMkn" minWidth="0.0" prefWidth="162.85711669921875" text="Nama" />
