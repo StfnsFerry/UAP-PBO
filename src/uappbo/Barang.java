@@ -1,29 +1,34 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package uappbo;
 
-/**
- *
- * @author J I H A N
- */
 public class Barang extends Produk {
     private String barcode;
     private String expired;
-    private int kategori;
+    private int id_kategori;
     
-    public Barang(String barcode, int jumlah, int kategori){
-        super(jumlah);
+    public Barang(){}
+    
+    public Barang(String barcode){
         this.barcode = barcode;
-        this.kategori = kategori;
     }
     
-    public Barang(String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, int kategori){
+    public Barang(String namaProduk,int kategori){
+        super(namaProduk);
+        this.id_kategori = id_kategori;
+    }
+    
+    public Barang(String barcode,String namaProduk,double harga, int jumlah,double diskon,String expired, int id_kategori){
         super(namaProduk,harga,jumlah,diskon);
         this.barcode = barcode;
         this.expired = expired;
-        this.kategori = kategori;        
+        this.id_kategori = id_kategori;
+    }
+    
+    public boolean isExpired(){
+        return true;
+    }
+    
+    public Kategori addKategori(){
+       return null;
     }
 
     public String getBarcode() {
@@ -43,18 +48,10 @@ public class Barang extends Produk {
     }
 
     public int getKategori() {
-        return kategori;
+        return id_kategori;
     }
 
-    public void setKategori(int kategori) {
-        this.kategori = kategori;
-    }   
-    
-    public boolean isExpired(){
-        return true;
-    }
-    
-    public Kategori addKategori(){
-       return null;
+    public void setKategori(int id_kategori) {
+        this.id_kategori = id_kategori;
     }
 }
