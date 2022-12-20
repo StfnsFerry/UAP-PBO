@@ -17,18 +17,16 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Tab;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 public class ProdukController implements Initializable {
     
     KasirModel barang = new KasirModel();
-
+    
     @FXML
     private TextField Barcode;
 
@@ -49,12 +47,9 @@ public class ProdukController implements Initializable {
     
     @FXML
     private TextField Kategori;
-
+    
     @FXML
     private Button btnBeli;
-
-    @FXML
-    private Button btnCekBrng;
 
     @FXML
     private Button btnHapusBrng;
@@ -73,6 +68,9 @@ public class ProdukController implements Initializable {
 
     @FXML
     private Button btnTambahBrng;
+    
+    @FXML
+    private TableView<Barang> tableItem;
 
     @FXML
     private TableColumn<Barang, StringProperty> colBarcode;
@@ -90,18 +88,13 @@ public class ProdukController implements Initializable {
     private TableColumn<Barang, IntegerProperty> colJmlhBrng;
 
     @FXML
-    private TableColumn<Barang, StringProperty> colKategoriBrng;
+    private TableColumn<Barang, IntegerProperty> colKategoriBrng;
 
     @FXML
     private TableColumn<Barang, StringProperty> colNamaBrng;
 
     @FXML
-    void cekBarang(ActionEvent event) throws IOException{
-
-    }
-
-    @FXML
-    void hapusBarang(ActionEvent event) throws IOException,SQLException{
+    void hapusBarang(ActionEvent event) throws IOException, SQLException{
         Barang b = new Barang(Barcode.getText());
         barang.deleteProduk(b);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
@@ -130,13 +123,12 @@ public class ProdukController implements Initializable {
        colHargaBrng.setCellValueFactory(new PropertyValueFactory<>("harga"));
        colJmlhBrng.setCellValueFactory(new PropertyValueFactory<>("jumlah"));
        colDiskonBrng.setCellValueFactory(new PropertyValueFactory<>("diskon"));
-//       TabelBarang.setItems(null);
-//       TabelBarang.setItems(barang);
+
+       tableItem.setItems(brg);
    }
     
      @FXML
-    void tambahBarang(ActionEvent event) throws IOException,SQLException{   
-//        ObservableList<Kategori> ktg = kategori.getKategori();
+    void tambahBarang(ActionEvent event) throws IOException, SQLException{   
         Barang b = new Barang(
                 Barcode.getText(),
                 NamaBarang.getText(),
@@ -146,6 +138,7 @@ public class ProdukController implements Initializable {
                 ExpiredBarang.getText(),
                 Integer.parseInt(Kategori.getText())
         );
+//        barang.cekKategori(b);
         barang.addProduk(b);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("Produk.fxml"));
         Parent root = (Parent) loader.load();
@@ -181,7 +174,7 @@ public class ProdukController implements Initializable {
     void openPenjualan(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("Penjualan.fxml"));
         
-        Stage stage = (Stage) btnBeli.getScene().getWindow();
+        Stage stage = (Stage) btnPenjualan.getScene().getWindow();
         stage.setScene(new Scene(root,960,540));
     }
     
@@ -189,7 +182,7 @@ public class ProdukController implements Initializable {
     void openMakanan(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("ProdukMakanan.fxml"));
         
-        Stage stage = (Stage) btnBeli.getScene().getWindow();
+        Stage stage = (Stage) btnMakanan.getScene().getWindow();
         stage.setScene(new Scene(root,960,540));
     }
 
