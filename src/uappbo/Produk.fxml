@@ -104,7 +104,7 @@
             </Button>
             <Pane prefHeight="105.0" prefWidth="258.0">
                <children>
-                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="Stefanus  Ferry" textFill="WHITE">
+                  <Button alignment="BASELINE_LEFT" graphicTextGap="10.0" layoutY="45.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="257.0" style="-fx-background-color: #05071F;" text="UAP PBO" textFill="WHITE">
                      <graphic>
                         <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -147,17 +147,12 @@
                         <Label layoutX="383.0" layoutY="105.0" text="Expired" textFill="WHITE" />
                         <Label layoutX="383.0" layoutY="149.0" text="Kategori" textFill="WHITE" />
                         <Label layoutX="46.0" layoutY="194.0" text="Jumlah" textFill="WHITE" />
-                        <Button fx:id="btnTambahBrng" layoutX="464.0" layoutY="190.0" mnemonicParsing="false" onAction="#tambahBarang" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
+                        <Button fx:id="btnTambahBrng" layoutX="510.0" layoutY="190.0" mnemonicParsing="false" onAction="#tambahBarang" style="-fx-background-color: #2a73ff;" text="Tambah" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Button>
                         <Button fx:id="btnHapusBrng" layoutX="582.0" layoutY="190.0" mnemonicParsing="false" onAction="#hapusBarang" style="-fx-background-color: #fa5f7e;" text="Hapus" textAlignment="CENTER" textFill="WHITE">
-                           <font>
-                              <Font name="System Bold" size="12.0" />
-                           </font>
-                        </Button>
-                        <Button fx:id="btnCekBrng" layoutX="536.0" layoutY="190.0" mnemonicParsing="false" onAction="#cekBarang" style="-fx-background-color: #26bfbc;" text="Cek" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font>
@@ -170,7 +165,7 @@
                         <TextField fx:id="Kategori" layoutX="464.0" layoutY="145.0" prefHeight="0.0" prefWidth="170.0" />
                      </children>
                   </Pane>
-                  <TableView layoutY="249.0" prefHeight="291.0" prefWidth="701.0" style="-fx-background-color: #020314;">
+                  <TableView fx:id="tableItem" layoutY="249.0" prefHeight="291.0" prefWidth="701.0" style="-fx-background-color: #020314;">
                      <columns>
                         <TableColumn fx:id="colBarcode" prefWidth="68.5714111328125" text="Barcode" />
                         <TableColumn fx:id="colKategoriBrng" minWidth="0.0" prefWidth="105.14288330078125" text="Kategori" />
