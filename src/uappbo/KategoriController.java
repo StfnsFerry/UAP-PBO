@@ -1,17 +1,28 @@
 package uappbo;
 
+import com.mysql.cj.conf.IntegerProperty;
+import com.mysql.cj.conf.StringProperty;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class KategoriController {
+public class KategoriController implements Initializable{
     
     KasirModel kategori = new KasirModel();
 
@@ -35,10 +46,35 @@ public class KategoriController {
 
     @FXML
     private Button btnTambah;
-
-    @FXML
-    private TableColumn<?, ?> colKategori;
     
+    @FXML
+    private TableView<Kategori> tableItem;
+    
+    @FXML
+    private TableColumn<Kategori, StringProperty> colKategori;
+    
+    @FXML
+    private TableColumn<Kategori, IntegerProperty> colID;
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        kategori = new KasirModel(); 
+        try { 
+            showData();
+        } catch (SQLException ex) {
+            Logger.getLogger(KategoriController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    } 
+    
+    public void showData() throws SQLException{
+       ObservableList<Kategori> k = kategori.getKategori(); 
+       
+       colID.setCellValueFactory(new PropertyValueFactory<>("id_kategori"));
+       colKategori.setCellValueFactory(new PropertyValueFactory<>("nama_kategori"));
+       
+       tableItem.setItems(k);
+   }
+     
     @FXML
     void tambahKategori(ActionEvent event) throws IOException{
         Kategori k = new Kategori(NamaKategori.getText());
