@@ -1,20 +1,32 @@
 package uappbo;
 
+import com.mysql.cj.conf.IntegerProperty;
+import com.mysql.cj.conf.StringProperty;
 import java.io.IOException;
+import java.net.URL;
+import java.sql.SQLException;
+import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.beans.property.DoubleProperty;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 
-public class BeliController {
+public class BeliController implements Initializable{
 
+    KasirModel barang = new KasirModel();
+    
     @FXML
     private TextField Barcode;
 
@@ -22,10 +34,10 @@ public class BeliController {
     private TextField Jumlah;
 
     @FXML
-    private ChoiceBox<?> boxKategori;
-
-    @FXML
     private Button btnBeli;
+    
+    @FXML
+    private Button btnBuy;
 
     @FXML
     private Button btnHome;
@@ -41,38 +53,67 @@ public class BeliController {
 
     @FXML
     private Button btnProduk;
+    
+    @FXML
+    private TableView<Barang> tableItem;
 
     @FXML
-    private TableColumn<?, ?> colBarcode;
+    private TableColumn<Barang, StringProperty> colBarcode;
 
     @FXML
-    private TableColumn<?, ?> colDiskon;
+    private TableColumn<Barang, DoubleProperty> colDiskon;
 
     @FXML
-    private TableColumn<?, ?> colExpired;
+    private TableColumn<Barang, StringProperty> colExpired;
 
     @FXML
-    private TableColumn<?, ?> colHarga;
+    private TableColumn<Barang, DoubleProperty> colHarga;
 
     @FXML
-    private TableColumn<?, ?> colJumlah;
+    private TableColumn<Barang, IntegerProperty> colJumlah;
 
     @FXML
-    private TableColumn<?, ?> colKategori;
+    private TableColumn<Barang, IntegerProperty> colKategori;
 
     @FXML
-    private TableColumn<?, ?> colNama;
+    private TableColumn<Barang, StringProperty> colNama;
 
     @FXML
-    void beliBarang(ActionEvent event) throws IOException{
+    void beliBarang(ActionEvent event) throws IOException, SQLException{
+        Barang b = new Barang(
+                Barcode.getText(),Integer.parseInt(Jumlah.getText()));
 
+        barang.buyProduk(b);
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("Beli.fxml"));
+        Parent root = (Parent) loader.load();
+        Stage stage = (Stage) btnBuy.getScene().getWindow();
+        stage.setScene(new Scene(root));
     }
 
-    @FXML
-    void choiceKategori(MouseEvent event) throws IOException{
-
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        barang = new KasirModel(); 
+        try { 
+            showData();
+        } catch (SQLException ex) {
+            Logger.getLogger(BeliController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
+    
+    public void showData() throws SQLException{
+       ObservableList<Barang> brg = barang.getBarang(); 
 
+       colBarcode.setCellValueFactory(new PropertyValueFactory<>("barcode"));
+       colExpired.setCellValueFactory(new PropertyValueFactory<>("expired"));
+       colKategori.setCellValueFactory(new PropertyValueFactory<>("kategori"));
+       colNama.setCellValueFactory(new PropertyValueFactory<>("nama_produk"));
+       colHarga.setCellValueFactory(new PropertyValueFactory<>("harga"));
+       colJumlah.setCellValueFactory(new PropertyValueFactory<>("jumlah"));
+       colDiskon.setCellValueFactory(new PropertyValueFactory<>("diskon"));
+
+       tableItem.setItems(brg);
+   }
+    
     @FXML
     void openHome(ActionEvent event) throws IOException{
         Parent root = FXMLLoader.load(getClass().getResource("HomeScreen.fxml"));
